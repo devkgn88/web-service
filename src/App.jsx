@@ -8,6 +8,7 @@ import { useRoutes } from 'react-router-dom';
 import Router from './routes/Router';
 
 import { baselightTheme } from "./theme/DefaultColors";
+import { UserProvider } from './context/UserContext';
 
 function App() {
   
@@ -17,9 +18,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {routing}
+      <UserProvider>
+        {routing}
+      </UserProvider>
     </ThemeProvider>
   );
 }
 
-export default App
+export default App;
