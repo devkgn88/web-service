@@ -1,25 +1,27 @@
-import { Link } from "react-router-dom";
-import { ReactComponent as LogoDark1 } from "src/assets/images/logos/dark1-logo.svg";
-import { styled } from "@mui/material";
+import { Link } from 'react-router-dom';
+import { styled, Typography } from '@mui/material';
 
 const LinkStyled = styled(Link)(() => ({
-  height: "70px",
-  width: "180px",
-  overflow: "hidden",
-  display: "block",
+  height: '70px',
+  width: '180px',
+  overflow: 'hidden',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textDecoration: 'none',
 }));
 
 const Logo = () => {
   return (
-    <LinkStyled
-      to="/"
-      height={70}
-      style={{
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <LogoDark1 />
+    <LinkStyled to="/">
+      <Typography
+        variant="h4"
+        fontWeight="bold"
+        color="primary"
+        sx={{ fontFamily: 'sans-serif' }}
+      >
+        Roomi
+      </Typography>
     </LinkStyled>
   );
 };
