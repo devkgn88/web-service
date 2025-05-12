@@ -8,19 +8,19 @@ import { useRoutes } from 'react-router-dom';
 import Router from './routes/Router';
 
 import { baselightTheme } from "./theme/DefaultColors";
-import { UserProvider } from './context/UserContext';
+import { AuthProvider } from './auth/AuthContext';
+
 
 function App() {
-  
-  const routing = useRoutes(Router);
   const theme = baselightTheme;
+  const routing = useRoutes(Router);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <UserProvider>
-        {routing}
-      </UserProvider>
+      <AuthProvider>
+          {routing}
+      </AuthProvider>
     </ThemeProvider>
   );
 }
