@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         localStorage.removeItem("access_token");
         setIsAuthenticated(false);
-        window.location.href = "/auth/login";
+        window.location.href = "/login";
     };
 
     return (
