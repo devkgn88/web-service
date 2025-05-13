@@ -10,15 +10,15 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(!!token);
     }, []);
 
-    const login = (token) => {
-        localStorage.setItem("access_token", token);
+    const login = (data) => {
+        localStorage.setItem("access_token", data.accessToken);
         setIsAuthenticated(true);
     };
 
     const logout = () => {
         localStorage.removeItem("access_token");
         setIsAuthenticated(false);
-        window.location.href = "/login";
+        window.location.href = "/auth/login";
     };
 
     return (
