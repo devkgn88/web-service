@@ -12,18 +12,21 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import { loginUser } from '../../../auth/AuthActions';
+import { useAuth } from '../../../auth/AuthContext'
 
 const AuthLogin = ({ title, subtitle, subtext }) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try{
             const accessToken = await loginUser(username,password);
-            localStorage.setItem('access_token',accessToken);
+            login({accessToken});
             navigate("/dashboard");
         } catch(error){
             alert('로그인에 실패하였습니다.');
