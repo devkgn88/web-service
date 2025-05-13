@@ -43,5 +43,15 @@ export default defineConfig({
     // })],
 
     plugins: [svgr(), react()],
+    build: {
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'index.html'),
+            },
+        },
+    },
+    server: {
+        historyApiFallback: true,
+    },
     base: '/roomi'
 });
